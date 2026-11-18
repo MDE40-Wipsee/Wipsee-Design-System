@@ -14,6 +14,8 @@ Export statique du système de design Wipsee : CSS/JS/polices/images réels, san
 
 ## Intégrer dans une page PHP existante
 
+### Option A — fichiers copiés sur le serveur (hors-ligne, recommandé pour la prod)
+
 Dans le `<head>` de la page :
 
 ```html
@@ -28,6 +30,18 @@ Juste avant `</body>` :
 ```
 
 Adaptez les chemins selon l'arborescence du site (portail Synology, wipseeconnect.eu) : le plus simple est de copier les quatre dossiers (`css/`, `js/`, `fonts/`, `assets/`) tels quels dans un répertoire partagé (`/wipsee-ds/` par exemple) et de garder les chemins relatifs entre eux intacts — `tokens.css` référence les polices en `../fonts/…`, et la page affichant le logo ou les motifs graphiques référence `assets/logos/…` et `assets/graphismes/…` par un chemin relatif à cette même racine.
+
+### Option B — via le CDN jsDelivr (aucun fichier à héberger)
+
+Ce dossier est aussi publié sur GitHub (`MDE40-Wipsee/Wipsee-Design-System`) et servi par jsDelivr, chemins relatifs compris (polices et assets se chargent automatiquement) :
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MDE40-Wipsee/Wipsee-Design-System@v1.0.0/css/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MDE40-Wipsee/Wipsee-Design-System@v1.0.0/css/wipsee.css">
+<script src="https://cdn.jsdelivr.net/gh/MDE40-Wipsee/Wipsee-Design-System@v1.0.0/js/wipsee.js"></script>
+```
+
+Le `@v1.0.0` pointe sur une version figée (tag git) : les fichiers ne changeront jamais sous ce tag, même si le dépôt évolue — c'est volontaire, pour ne pas casser un site en prod sans prévenir. Pour publier une mise à jour du design system, créer un nouveau tag (`v1.1.0`, etc.) et mettre à jour cette version dans les sites qui l'utilisent. `@main` fonctionne aussi mais reflète toujours la dernière version du dépôt, avec un cache jsDelivr d'environ 12h.
 
 ## La convention de classes `wip-`
 
