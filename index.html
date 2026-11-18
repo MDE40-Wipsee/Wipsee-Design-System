@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wipsee — Système de design</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/wipsee.css">
+<style>
+  body { margin: 0; background: var(--surface); color: var(--ink); font-family: var(--font-sans); }
+  .showcase-header { padding: var(--space-8) var(--space-5) var(--space-6); border-bottom: 1px solid var(--border); }
+  .showcase-header h1 { font-size: 36px; line-height: 44px; font-weight: 800; margin: 0 0 var(--space-2); }
+  .showcase-header p { font-size: 15px; color: var(--ink-muted); margin: 0; max-width: 640px; }
+  main { max-width: 1040px; margin: 0 auto; padding: 0 var(--space-5) var(--space-9); }
+  section.group { padding-top: var(--space-8); }
+  section.group h2 { font-size: 28px; line-height: 36px; font-weight: 700; margin: 0 0 var(--space-2); border-bottom: 1px solid var(--border); padding-bottom: var(--space-3); }
+  .comp { padding: var(--space-7) 0; border-bottom: 1px solid var(--border); }
+  .comp h3 { font-size: 18px; line-height: 26px; font-weight: 600; margin: 0 0 var(--space-4); color: var(--bleu-petrole-texte); }
+  .comp-demo { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); overflow: auto; }
+</style>
+</head>
+<body>
+
+<header class="showcase-header">
+  <h1>Wipsee — Système de design</h1>
+  <p>Vitrine statique hors du bac à sable Claude : CSS/JS réels, chargés depuis ce dossier, sans dépendance à un runtime externe. Tous les composants ci-dessous utilisent les classes <code>wip-</code> de <code>css/wipsee.css</code> et <code>js/wipsee.js</code>.</p>
+</header>
+
+<main>
+
+<section class="group" id="actions">
+  <h2>Actions</h2>
+
+  <div class="comp">
+    <h3>Bouton</h3>
+    <div class="comp-demo">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:28px;">
+        <button class="wip-btn wip-btn--primary">Candidater</button>
+        <button class="wip-btn wip-btn--secondary">En savoir plus</button>
+        <button class="wip-btn wip-btn--tertiary">Annuler</button>
+        <button class="wip-btn wip-btn--primary" disabled>Envoi en cours…</button>
+        <button class="wip-btn wip-btn--secondary wip-btn--sm">Petit</button>
+        <button class="wip-btn wip-btn--primary wip-btn--lg">Grand</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Badge</h3>
+    <div class="comp-demo">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;padding:28px;">
+        <span class="wip-badge wip-badge--info"><span class="wip-badge__dot"></span>Candidature reçue</span>
+        <span class="wip-badge wip-badge--succes"><span class="wip-badge__dot"></span>Validé</span>
+        <span class="wip-badge wip-badge--avertissement"><span class="wip-badge__dot"></span>En attente de pièces</span>
+        <span class="wip-badge wip-badge--danger"><span class="wip-badge__dot"></span>Refusé</span>
+        <span class="wip-badge wip-badge--neutre"><span class="wip-badge__dot"></span>Brouillon</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Tag</h3>
+    <div class="comp-demo">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;padding:28px;">
+        <span class="wip-tag wip-tag--bleu">Europe et international<button class="wip-tag__remove" data-dismiss aria-label="Retirer le filtre Europe et international"><svg viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button></span>
+        <span class="wip-tag wip-tag--jaune">Cité des langues<button class="wip-tag__remove" data-dismiss aria-label="Retirer le filtre Cité des langues"><svg viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button></span>
+        <span class="wip-tag wip-tag--vert">Campus du volontariat<button class="wip-tag__remove" data-dismiss aria-label="Retirer le filtre Campus du volontariat"><svg viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button></span>
+        <span class="wip-tag wip-tag--rose">Labo à projets<button class="wip-tag__remove" data-dismiss aria-label="Retirer le filtre Labo à projets"><svg viewBox="0 0 16 16" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="retour">
+  <h2>Retour d'information</h2>
+
+  <div class="comp">
+    <h3>Alerte</h3>
+    <div class="comp-demo">
+      <div style="display:flex;flex-direction:column;gap:12px;padding:28px;">
+        <div class="wip-alert wip-alert--info">
+          <svg class="wip-alert__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8.2"/><path stroke-linecap="round" d="M10 9v4.2M10 6.3v.1"/></svg>
+          <div class="wip-alert__body"><p class="wip-alert__title">Dates à retenir</p><p class="wip-alert__text">Les candidatures au Campus du volontariat sont ouvertes jusqu'au 15 décembre 2026.</p></div>
+        </div>
+        <div class="wip-alert wip-alert--succes">
+          <svg class="wip-alert__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8.2"/><path stroke-linecap="round" stroke-linejoin="round" d="M6.3 10.3l2.4 2.4 5-5.4"/></svg>
+          <div class="wip-alert__body"><p class="wip-alert__title">Candidature envoyée</p><p class="wip-alert__text">Vous recevrez une réponse de l'équipe Wipsee sous dix jours ouvrés.</p></div>
+          <button class="wip-alert__close" data-dismiss aria-label="Fermer ce message"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+        </div>
+        <div class="wip-alert wip-alert--avertissement">
+          <svg class="wip-alert__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linejoin="round" d="M10 2.6l7.8 14.8H2.2L10 2.6z"/><path stroke-linecap="round" d="M10 8.3v4M10 15v.1"/></svg>
+          <div class="wip-alert__body"><p class="wip-alert__title">Pièce manquante</p><p class="wip-alert__text">Votre justificatif de domicile n'a pas pu être lu. Déposez-le à nouveau au format PDF.</p></div>
+        </div>
+        <div class="wip-alert wip-alert--danger">
+          <svg class="wip-alert__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="8.2"/><path stroke-linecap="round" d="M7 7l6 6M13 7l-6 6"/></svg>
+          <div class="wip-alert__body"><p class="wip-alert__title">Candidature refusée</p><p class="wip-alert__text">Le dossier ne remplit pas les conditions d'âge du programme. Contactez votre pôle pour les alternatives.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="donnees">
+  <h2>Données</h2>
+
+  <div class="comp">
+    <h3>Tableau</h3>
+    <div class="comp-demo">
+      <div style="padding:28px;">
+        <div class="wip-table-wrap">
+          <table class="wip-table wip-table--zebra">
+            <thead><tr><th scope="col">Candidat</th><th scope="col">Pôle</th><th scope="col">Date de dépôt</th><th scope="col">Statut</th></tr></thead>
+            <tbody>
+              <tr><td>Inès Marchadour</td><td>Campus du volontariat</td><td>02/11/2026</td><td><span class="wip-badge wip-badge--succes"><span class="wip-badge__dot"></span>Validé</span></td></tr>
+              <tr><td>Yanis Bedot</td><td>Europe et international</td><td>05/11/2026</td><td><span class="wip-badge wip-badge--info"><span class="wip-badge__dot"></span>En cours</span></td></tr>
+              <tr><td>Chloé Darriet</td><td>Cité des langues</td><td>09/11/2026</td><td><span class="wip-badge wip-badge--avertissement"><span class="wip-badge__dot"></span>Pièce manquante</span></td></tr>
+              <tr><td>Paul Rousse</td><td>Labo à projets</td><td>14/11/2026</td><td><span class="wip-badge wip-badge--danger"><span class="wip-badge__dot"></span>Refusé</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="formulaires">
+  <h2>Formulaires</h2>
+
+  <div class="comp">
+    <h3>Champs de formulaire</h3>
+    <div class="comp-demo">
+      <form style="display:flex;flex-direction:column;gap:20px;padding:28px;max-width:360px;">
+        <div class="wip-field">
+          <label class="wip-field__label" for="f-nom">Nom complet</label>
+          <input class="wip-input" id="f-nom" type="text" placeholder="Prénom et nom">
+          <span class="wip-field__hint">Tel qu'il figure sur votre carte d'identité.</span>
+        </div>
+        <div class="wip-field wip-field--error">
+          <label class="wip-field__label" for="f-mail">Adresse e-mail</label>
+          <input class="wip-input" id="f-mail" type="email" value="marie.dufau@mail" aria-describedby="f-mail-err">
+          <span class="wip-field__error" id="f-mail-err">Cette adresse e-mail est incomplète.</span>
+        </div>
+        <div class="wip-field">
+          <label class="wip-field__label" for="f-pole">Pôle concerné</label>
+          <select class="wip-select" id="f-pole">
+            <option>Campus du volontariat</option>
+            <option>Europe et international</option>
+            <option>Cité des langues</option>
+          </select>
+        </div>
+        <div class="wip-field">
+          <label class="wip-field__label" for="f-motiv">Motivation</label>
+          <textarea class="wip-textarea" id="f-motiv" placeholder="Expliquez votre projet en quelques lignes"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Case à cocher et bouton radio</h3>
+    <div class="comp-demo">
+      <form style="display:flex;flex-direction:column;gap:20px;padding:28px;">
+        <fieldset style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+          <legend style="font-family:var(--font-sans);font-size:13px;font-weight:600;color:var(--ink);padding:0;margin:0 0 4px;">Je souhaite candidater pour :</legend>
+          <label class="wip-radio"><input type="radio" name="programme" checked> Un service civique</label>
+          <label class="wip-radio"><input type="radio" name="programme"> Un volontariat européen</label>
+          <label class="wip-radio"><input type="radio" name="programme"> Un échange de la Cité des langues</label>
+        </fieldset>
+        <label class="wip-checkbox"><input type="checkbox" checked> J'ai lu et j'accepte le règlement du programme</label>
+        <label class="wip-checkbox"><input type="checkbox"> Je souhaite recevoir la lettre d'information Wipsee</label>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="navigation">
+  <h2>Navigation</h2>
+
+  <div class="comp">
+    <h3>Fil d'Ariane</h3>
+    <div class="comp-demo">
+      <nav style="padding:32px;" aria-label="Fil d'Ariane">
+        <ol class="wip-breadcrumb">
+          <li class="wip-breadcrumb__item">
+            <a class="wip-breadcrumb__link" href="#">Accueil</a>
+            <svg class="wip-breadcrumb__sep" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+          </li>
+          <li class="wip-breadcrumb__item">
+            <a class="wip-breadcrumb__link" href="#">Campus du volontariat</a>
+            <svg class="wip-breadcrumb__sep" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+          </li>
+          <li class="wip-breadcrumb__item"><span class="wip-breadcrumb__current" aria-current="page">Candidater</span></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Onglets</h3>
+    <div class="comp-demo">
+      <div style="padding:28px;" class="wip-tabs">
+        <div class="wip-tabs__list" role="tablist" aria-label="Informations sur le programme">
+          <button class="wip-tabs__tab" role="tab" id="tab-presentation" aria-controls="panel-presentation" aria-selected="true">Présentation</button>
+          <button class="wip-tabs__tab" role="tab" id="tab-conditions" aria-controls="panel-conditions" aria-selected="false">Conditions</button>
+          <button class="wip-tabs__tab" role="tab" id="tab-calendrier" aria-controls="panel-calendrier" aria-selected="false">Calendrier</button>
+        </div>
+        <div class="wip-tabs__panel" id="panel-presentation" role="tabpanel" aria-labelledby="tab-presentation">Le Campus du volontariat accompagne les 18-30 ans vers un service civique ou un corps européen de solidarité à l'étranger.</div>
+        <div class="wip-tabs__panel" id="panel-conditions" role="tabpanel" aria-labelledby="tab-conditions" hidden>Être âgé de 18 à 30 ans, résider dans les Landes et disposer d'un projet de mobilité d'au moins deux mois.</div>
+        <div class="wip-tabs__panel" id="panel-calendrier" role="tabpanel" aria-labelledby="tab-calendrier" hidden>Les candidatures sont étudiées en continu ; les départs se préparent en moyenne trois mois en amont.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Accordéon</h3>
+    <div class="comp-demo">
+      <div style="padding:28px;" class="wip-accordion">
+        <div class="wip-accordion__item">
+          <button class="wip-accordion__trigger" aria-expanded="true" aria-controls="acc-panel-1">Qui peut candidater au Campus du volontariat ?
+            <svg class="wip-accordion__chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="wip-accordion__panel" id="acc-panel-1">Tout jeune de 18 à 30 ans résidant dans les Landes, sans condition de diplôme.</div>
+        </div>
+        <div class="wip-accordion__item">
+          <button class="wip-accordion__trigger" aria-expanded="false" aria-controls="acc-panel-2">Faut-il parler une langue étrangère ?
+            <svg class="wip-accordion__chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="wip-accordion__panel" id="acc-panel-2" hidden>Non : la Cité des langues propose une préparation linguistique avant le départ.</div>
+        </div>
+        <div class="wip-accordion__item">
+          <button class="wip-accordion__trigger" aria-expanded="false" aria-controls="acc-panel-3">Le programme est-il rémunéré ?
+            <svg class="wip-accordion__chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="wip-accordion__panel" id="acc-panel-3" hidden>Une indemnité de service civique est versée, et les frais de logement et de transport sont pris en charge.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Pagination</h3>
+    <div class="comp-demo">
+      <nav style="padding:32px;" aria-label="Pagination des actualités">
+        <ul class="wip-pagination">
+          <li><button class="wip-pagination__btn" disabled aria-label="Page précédente"><svg class="wip-pagination__icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L6 8l4 5"/></svg></button></li>
+          <li><button class="wip-pagination__btn" aria-current="page">1</button></li>
+          <li><button class="wip-pagination__btn">2</button></li>
+          <li><button class="wip-pagination__btn">3</button></li>
+          <li><span class="wip-pagination__btn" style="cursor:default;">…</span></li>
+          <li><button class="wip-pagination__btn">12</button></li>
+          <li><button class="wip-pagination__btn" aria-label="Page suivante"><svg class="wip-pagination__icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l4 5-4 5"/></svg></button></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Étapes</h3>
+    <div class="comp-demo">
+      <div style="padding:32px;">
+        <ol class="wip-steps">
+          <li class="wip-steps__item wip-steps__item--done"><span class="wip-steps__circle" aria-hidden="true">✓</span><span class="wip-steps__label">Profil<span class="wip-sr-only"> (terminé)</span></span></li>
+          <li class="wip-steps__line" aria-hidden="true"></li>
+          <li class="wip-steps__item wip-steps__item--done"><span class="wip-steps__circle" aria-hidden="true">✓</span><span class="wip-steps__label">Projet<span class="wip-sr-only"> (terminé)</span></span></li>
+          <li class="wip-steps__line" aria-hidden="true"></li>
+          <li class="wip-steps__item wip-steps__item--actif" aria-current="step"><span class="wip-steps__circle" aria-hidden="true">3</span><span class="wip-steps__label">Pièces justificatives<span class="wip-sr-only"> (étape en cours)</span></span></li>
+          <li class="wip-steps__line" aria-hidden="true"></li>
+          <li class="wip-steps__item"><span class="wip-steps__circle" aria-hidden="true">4</span><span class="wip-steps__label">Confirmation<span class="wip-sr-only"> (à venir)</span></span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="mise-en-page">
+  <h2>Mise en page</h2>
+
+  <div class="comp">
+    <h3>Fenêtre modale</h3>
+    <div class="comp-demo">
+      <div style="padding:28px;">
+        <button class="wip-btn wip-btn--primary" data-modal-open="demo-modal">Retirer ma candidature</button>
+        <div class="wip-modal-overlay" id="demo-modal" hidden>
+          <div class="wip-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+            <div class="wip-modal__header">
+              <h2 class="wip-modal__title" id="demo-modal-title" style="font-size:20px;line-height:27px;">Confirmer le retrait</h2>
+              <button class="wip-modal__close" data-modal-close aria-label="Fermer la fenêtre"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+            </div>
+            <div class="wip-modal__body">Votre candidature au Campus du volontariat sera définitivement retirée. Cette action est irréversible.</div>
+            <div class="wip-modal__footer">
+              <button class="wip-btn wip-btn--tertiary" data-modal-close>Annuler</button>
+              <button class="wip-btn wip-btn--primary" data-modal-close>Confirmer le retrait</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>En-tête de site</h3>
+    <div class="comp-demo">
+      <header class="wip-header">
+        <a class="wip-header__logo" href="#" aria-label="Accueil Wipsee">
+          <img src="assets/logos/wipsee-logo-horizontal.png" alt="Wipsee — Maison de l'Europe des Landes" style="height:28px;width:auto;">
+        </a>
+        <nav class="wip-nav" aria-label="Navigation principale">
+          <a class="wip-nav__link" href="#">Les 5 pôles</a>
+          <a class="wip-nav__link" href="#">Actualités</a>
+          <a class="wip-nav__link" href="#">Candidater</a>
+          <a class="wip-nav__link" href="#">Nous contacter</a>
+        </nav>
+        <div class="wip-header__actions">
+          <button class="wip-btn wip-btn--primary wip-btn--sm">Candidater</button>
+          <button class="wip-nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+          </button>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Pied de page</h3>
+    <div class="comp-demo">
+      <footer class="wip-footer">
+        <div class="wip-footer__grid">
+          <div class="wip-footer__mission">
+            <img src="assets/logos/wipsee-logo-blanc.png" alt="Wipsee — Maison de l'Europe des Landes" style="height:36px;width:auto;margin-bottom:16px;">
+            <p>La Maison de l'Europe des Landes accompagne les jeunes des Landes vers la mobilité européenne et internationale depuis Pontonx-sur-l'Adour.</p>
+            <div class="wip-footer__social">
+              <a href="#" aria-label="Wipsee sur Facebook"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 5.5H8.5a1 1 0 00-1 1V8H10l-.4 2H7.5v4.5h-2V10H4V8h1.5V6.2C5.5 4.4 6.7 3 8.7 3H10v2.5z"/></svg></a>
+              <a href="#" aria-label="Wipsee sur Instagram"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="11" height="11" rx="3"/><circle cx="8" cy="8" r="2.6"/><circle cx="11.3" cy="4.7" r=".6" fill="currentColor" stroke="none"/></svg></a>
+              <a href="#" aria-label="Wipsee sur LinkedIn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.6 7v4M5.6 5.4v.1M8.2 11V8.6c0-1 .6-1.6 1.5-1.6s1.4.6 1.4 1.6V11"/></svg></a>
+            </div>
+          </div>
+          <div class="wip-footer__col">
+            <h3>Nos pôles</h3>
+            <ul><li><a href="#">Information jeunes</a></li><li><a href="#">Europe et international</a></li><li><a href="#">Cité des langues</a></li><li><a href="#">Campus du volontariat</a></li><li><a href="#">Labo à projets</a></li></ul>
+          </div>
+          <div class="wip-footer__col">
+            <h3>Ressources</h3>
+            <ul><li><a href="#">Actualités</a></li><li><a href="#">Candidater</a></li><li><a href="#">Devenir bénévole</a></li><li><a href="#">Nos partenaires</a></li></ul>
+          </div>
+        </div>
+        <div class="wip-footer__bottom">
+          <span>© 2026 Maison de l'Europe des Landes Wipsee</span>
+          <span><a href="#" style="color:inherit;">Mentions légales</a> · <a href="#" style="color:inherit;">Confidentialité</a></span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Bandeau d'accueil</h3>
+    <div class="comp-demo">
+      <div class="wip-hero">
+        <div class="wip-hero__blob" style="background:var(--rose-corail);top:-90px;right:-60px;"></div>
+        <div class="wip-hero__blob" style="background:var(--jaune-ocre);width:160px;height:160px;bottom:-60px;right:120px;opacity:.35;"></div>
+        <div class="wip-hero__content">
+          <p class="wip-hero__eyebrow">Maison de l'Europe des Landes</p>
+          <h1 class="wip-hero__title">Explorer l'Europe des Landes</h1>
+          <p class="wip-hero__subtitle">Volontariat, mobilité, langues et projets européens : cinq pôles pour accompagner les jeunes des Landes au-delà de leurs frontières.</p>
+          <div style="display:flex;gap:12px;">
+            <button class="wip-btn wip-btn--primary wip-btn--lg">Candidater à un programme</button>
+            <button class="wip-btn wip-btn--secondary wip-btn--lg">Découvrir les 5 pôles</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="contenu">
+  <h2>Contenu</h2>
+
+  <div class="comp">
+    <h3>Carte</h3>
+    <div class="comp-demo">
+      <div style="display:flex;flex-wrap:wrap;gap:20px;padding:28px;">
+        <div class="wip-card wip-card--pole" style="--pole-color:var(--bleu-petrole);width:240px;">
+          <p class="wip-card__eyebrow">Pôle</p>
+          <h3 class="wip-card__title">Europe et international</h3>
+          <p class="wip-card__excerpt">Informations sur les dispositifs de mobilité, démarches administratives et accompagnement des porteurs de projet.</p>
+          <a class="wip-card__link" href="#">Découvrir le pôle
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+        <div class="wip-card" style="width:240px;">
+          <p class="wip-card__eyebrow">Actualité</p>
+          <h3 class="wip-card__title">Dix jeunes des Landes partis en service civique à Porto</h3>
+          <p class="wip-card__excerpt">Retour sur le départ du groupe accompagné par le Campus du volontariat ce trimestre.</p>
+          <p class="wip-card__meta">Publié le 12 novembre 2026</p>
+        </div>
+        <div class="wip-card wip-card--pole" style="--pole-color:var(--rose-corail);width:240px;">
+          <p class="wip-card__eyebrow">Pôle</p>
+          <h3 class="wip-card__title">Cité des langues</h3>
+          <p class="wip-card__excerpt">Ateliers de pratique linguistique et préparation culturelle avant un départ en mobilité.</p>
+          <a class="wip-card__link" href="#">Découvrir le pôle
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Citation</h3>
+    <div class="comp-demo">
+      <div style="padding:32px;">
+        <blockquote class="wip-quote">
+          <span class="wip-quote__mark" aria-hidden="true">"</span>
+          <p class="wip-quote__text">Partir huit mois en Pologne avec le Campus du volontariat a changé ma façon de voir mon avenir professionnel.</p>
+          <div class="wip-quote__attribution">
+            <div><strong>Lola, 19 ans</strong><span>Volontariat européen, Cracovie</span></div>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp">
+    <h3>Avatar et fiche équipe</h3>
+    <div class="comp-demo">
+      <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center;padding:28px;">
+        <svg class="wip-avatar" style="--ring-color:var(--bleu-petrole);background:var(--surface-alt);" viewBox="0 0 56 56" role="img" aria-label="Portrait de Camille Dubosq"><text x="28" y="34" text-anchor="middle" font-family="var(--font-sans)" font-size="20" font-weight="700" fill="var(--ink-muted)">CD</text></svg>
+        <svg class="wip-avatar" style="--ring-color:var(--rose-corail);background:var(--surface-alt);" viewBox="0 0 56 56" role="img" aria-label="Portrait de Hugo Lesparre"><text x="28" y="34" text-anchor="middle" font-family="var(--font-sans)" font-size="20" font-weight="700" fill="var(--ink-muted)">HL</text></svg>
+        <svg class="wip-avatar" style="--ring-color:var(--vert-olive);background:var(--surface-alt);" viewBox="0 0 56 56" role="img" aria-label="Portrait de Nawel Berho"><text x="28" y="34" text-anchor="middle" font-family="var(--font-sans)" font-size="20" font-weight="700" fill="var(--ink-muted)">NB</text></svg>
+        <div class="wip-team-card">
+          <svg class="wip-avatar" style="--ring-color:var(--jaune-ocre);background:var(--surface-alt);" viewBox="0 0 56 56" role="img" aria-label="Portrait de Thomas Garat"><text x="28" y="34" text-anchor="middle" font-family="var(--font-sans)" font-size="20" font-weight="700" fill="var(--ink-muted)">TG</text></svg>
+          <div><p class="wip-team-card__name">Thomas Garat</p><p class="wip-team-card__role">Coordinateur Campus du volontariat</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="identite">
+  <h2>Identité Wipsee</h2>
+
+  <div class="comp">
+    <h3>Identité graphique Wipsee</h3>
+    <div class="comp-demo">
+      <div style="padding:32px;display:flex;flex-direction:column;gap:28px;">
+        <div class="wip-frise" style="background-image:url('assets/graphismes/frise-couleur.png');"></div>
+        <ul class="wip-liste--puce">
+          <li><span class="wip-liste--puce__icon" style="background-image:url('assets/graphismes/puce-bleu.png');"></span>Un accompagnement individuel, de l'idée au départ</li>
+          <li><span class="wip-liste--puce__icon" style="background-image:url('assets/graphismes/puce-jaune.png');"></span>Une préparation linguistique et interculturelle</li>
+          <li><span class="wip-liste--puce__icon" style="background-image:url('assets/graphismes/puce-vert.png');"></span>Un réseau de partenaires dans toute l'Europe</li>
+          <li><span class="wip-liste--puce__icon" style="background-image:url('assets/graphismes/puce-rose.png');"></span>Un suivi pendant et après la mobilité</li>
+        </ul>
+        <p style="font-family:var(--font-sans);font-size:15px;color:var(--ink);">
+          En savoir plus <span class="wip-fleche" style="background-image:url('assets/graphismes/fleche-bleu.png');"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="js/wipsee.js"></script>
+</body>
+</html>

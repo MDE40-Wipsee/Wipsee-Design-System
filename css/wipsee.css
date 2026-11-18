@@ -1,0 +1,264 @@
+/* Wipsee — feuille de composants. Toutes les classes sont préfixées wip- pour s'intégrer sans collision
+   dans un site existant. Les couleurs/espacements/rayons viennent des custom properties générées par
+   tokens.json (ex. var(--bleu-petrole-texte), var(--space-4), var(--radius-sm)) ; la typographie est
+   fixée ici directement (famille + taille + graisse) pour que ce fichier reste copiable tel quel sans
+   dépendre des classes utilitaires générées. */
+
+[class^="wip-"], [class*=" wip-"] { box-sizing: border-box; }
+
+.wip-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ---------- 1. Bouton ---------- */
+.wip-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 500;
+  padding: 10px var(--space-4); border-radius: var(--radius-sm); border: 1px solid transparent;
+  cursor: pointer; text-decoration: none; white-space: nowrap; transition: background-color .15s, border-color .15s, color .15s;
+}
+.wip-btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.wip-btn--primary { background: var(--bleu-petrole-texte); color: #fff; }
+.wip-btn--primary:hover { background: #3F6968; }
+.wip-btn--secondary { background: var(--surface); color: var(--ink); border-color: var(--border-interactive); }
+.wip-btn--secondary:hover { background: var(--surface-alt); }
+.wip-btn--tertiary { background: transparent; color: var(--bleu-petrole-texte); padding-left: var(--space-2); padding-right: var(--space-2); }
+.wip-btn--tertiary:hover { background: var(--info-fond); }
+.wip-btn--sm { padding: 6px var(--space-3); font-size: 12px; line-height: 16px; }
+.wip-btn--lg { padding: 13px var(--space-5); font-size: 15px; line-height: 20px; }
+.wip-btn[disabled] { opacity: .45; cursor: not-allowed; }
+.wip-btn__icon { width: 16px; height: 16px; flex: none; }
+
+/* ---------- 2. Badge ---------- */
+.wip-badge {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600;
+  padding: 3px var(--space-2) 3px 6px; border-radius: var(--radius-pill);
+}
+.wip-badge__dot { width: 6px; height: 6px; border-radius: 50%; flex: none; }
+.wip-badge--info { background: var(--info-fond); color: var(--info-texte); }
+.wip-badge--info .wip-badge__dot { background: var(--info-texte); }
+.wip-badge--succes { background: var(--succes-fond); color: var(--succes-texte); }
+.wip-badge--succes .wip-badge__dot { background: var(--succes-texte); }
+.wip-badge--avertissement { background: var(--avertissement-fond); color: var(--avertissement-texte); }
+.wip-badge--avertissement .wip-badge__dot { background: var(--avertissement-texte); }
+.wip-badge--danger { background: var(--danger-fond); color: var(--danger); }
+.wip-badge--danger .wip-badge__dot { background: var(--danger); }
+.wip-badge--neutre { background: var(--surface-alt); color: var(--ink-muted); }
+.wip-badge--neutre .wip-badge__dot { background: var(--ink-muted); }
+
+/* ---------- 3. Tag ---------- */
+.wip-tag {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 500;
+  padding: 5px var(--space-2) 5px var(--space-3); border-radius: var(--radius-sm); border: 1px solid;
+}
+.wip-tag--bleu { background: var(--info-fond); color: var(--bleu-petrole-texte); border-color: var(--info-fond); }
+.wip-tag--jaune { background: var(--avertissement-fond); color: var(--jaune-ocre-texte); border-color: var(--avertissement-fond); }
+.wip-tag--vert { background: var(--succes-fond); color: var(--vert-olive); border-color: var(--succes-fond); }
+.wip-tag--rose { background: #FBF0EF; color: var(--rose-corail-texte); border-color: #FBF0EF; }
+.wip-tag__remove {
+  display: inline-flex; width: 16px; height: 16px; align-items: center; justify-content: center;
+  background: transparent; border: 0; padding: 0; cursor: pointer; color: inherit; opacity: .7; border-radius: 50%;
+}
+.wip-tag__remove:hover { opacity: 1; background: rgba(0,0,0,.08); }
+.wip-tag__remove:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
+
+/* ---------- 4. Alerte ---------- */
+.wip-alert { display: flex; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); }
+.wip-alert__icon { width: 20px; height: 20px; flex: none; margin-top: 1px; }
+.wip-alert__body { flex: 1; min-width: 0; }
+.wip-alert__title { font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 600; margin: 0 0 2px; }
+.wip-alert__text { font-family: var(--font-sans); font-size: 13px; line-height: 20px; font-weight: 400; margin: 0; }
+.wip-alert__close { background: transparent; border: 0; padding: var(--space-1); cursor: pointer; color: inherit; opacity: .6; flex: none; border-radius: var(--radius-sm); }
+.wip-alert__close:hover { opacity: 1; }
+.wip-alert__close:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
+.wip-alert--info { background: var(--info-fond); color: var(--info-texte); }
+.wip-alert--succes { background: var(--succes-fond); color: var(--succes-texte); }
+.wip-alert--avertissement { background: var(--avertissement-fond); color: var(--avertissement-texte); }
+.wip-alert--danger { background: var(--danger-fond); color: var(--danger); }
+
+/* ---------- 5. Carte ---------- */
+.wip-card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: var(--space-5); min-width: 0;
+}
+.wip-card__eyebrow { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; color: var(--bleu-petrole-texte); margin: 0; }
+.wip-card__title { font-family: var(--font-sans); font-size: 20px; line-height: 27px; font-weight: 700; color: var(--ink); margin: 0; }
+.wip-card__excerpt { font-family: var(--font-sans); font-size: 14px; line-height: 21px; font-weight: 400; color: var(--ink-muted); margin: 0; }
+.wip-card__meta { font-family: var(--font-sans); font-size: 12px; line-height: 16px; color: var(--ink-subtle); margin-top: auto; padding-top: var(--space-2); }
+.wip-card__link { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 600; color: var(--bleu-petrole-texte); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.wip-card__link:hover { text-decoration: underline; }
+.wip-card--pole { border-top: 4px solid var(--pole-color, var(--bleu-petrole)); }
+
+/* ---------- 6. Fil d'Ariane ---------- */
+.wip-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+.wip-breadcrumb__item { display: flex; align-items: center; gap: var(--space-1); }
+.wip-breadcrumb__link { font-family: var(--font-sans); font-size: 13px; line-height: 18px; color: var(--bleu-petrole-texte); text-decoration: none; }
+.wip-breadcrumb__link:hover { text-decoration: underline; }
+.wip-breadcrumb__current { font-family: var(--font-sans); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+.wip-breadcrumb__sep { width: 12px; height: 12px; color: var(--ink-subtle); flex: none; }
+
+/* ---------- 7. Onglets ---------- */
+.wip-tabs__list { display: flex; gap: var(--space-5); border-bottom: 1px solid var(--border); list-style: none; margin: 0; padding: 0; }
+.wip-tabs__tab {
+  font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ink-muted);
+  background: transparent; border: 0; border-bottom: 2px solid transparent; padding: var(--space-3) 2px; margin-bottom: -1px;
+  cursor: pointer;
+}
+.wip-tabs__tab:hover { color: var(--ink); }
+.wip-tabs__tab:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.wip-tabs__tab[aria-selected="true"] { color: var(--bleu-petrole-texte); border-bottom-color: var(--bleu-petrole-texte); }
+.wip-tabs__panel { font-family: var(--font-sans); font-size: 14px; line-height: 21px; color: var(--ink); padding-top: var(--space-4); }
+.wip-tabs__panel[hidden] { display: none; }
+
+/* ---------- 8. Accordéon ---------- */
+.wip-accordion__item { border-bottom: 1px solid var(--border); }
+.wip-accordion__trigger {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  background: transparent; border: 0; padding: var(--space-4) 2px; text-align: left; cursor: pointer;
+  font-family: var(--font-sans); font-size: 15px; line-height: 22px; font-weight: 600; color: var(--ink);
+}
+.wip-accordion__trigger:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.wip-accordion__chevron { width: 18px; height: 18px; flex: none; color: var(--bleu-petrole-texte); transition: transform .18s ease; }
+.wip-accordion__trigger[aria-expanded="true"] .wip-accordion__chevron { transform: rotate(180deg); }
+.wip-accordion__panel { font-family: var(--font-sans); font-size: 14px; line-height: 22px; color: var(--ink-muted); padding: 0 2px var(--space-4); }
+.wip-accordion__panel[hidden] { display: none; }
+
+/* ---------- 9. Pagination ---------- */
+.wip-pagination { display: flex; align-items: center; gap: var(--space-1); list-style: none; margin: 0; padding: 0; }
+.wip-pagination__btn {
+  min-width: 32px; height: 32px; padding: 0 8px; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--ink);
+  background: transparent; border: 1px solid transparent; border-radius: var(--radius-sm); cursor: pointer;
+}
+.wip-pagination__btn:hover { background: var(--surface-alt); }
+.wip-pagination__btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
+.wip-pagination__btn[aria-current="page"] { background: var(--bleu-petrole-texte); color: #fff; }
+.wip-pagination__btn[disabled] { opacity: .35; cursor: not-allowed; }
+.wip-pagination__icon { width: 14px; height: 14px; }
+
+/* ---------- 10. Tableau ---------- */
+.wip-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.wip-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 13px; line-height: 18px; min-width: 480px; }
+.wip-table thead th {
+  text-align: left; font-weight: 600; color: var(--ink); background: var(--surface-alt);
+  padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.wip-table tbody td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); color: var(--ink-muted); }
+.wip-table tbody tr:last-child td { border-bottom: 0; }
+.wip-table--zebra tbody tr:nth-child(even) td { background: var(--surface-alt); }
+
+/* ---------- 11. Champs de formulaire ---------- */
+.wip-field { display: flex; flex-direction: column; gap: 6px; }
+.wip-field__label { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 600; color: var(--ink); }
+.wip-input, .wip-textarea, .wip-select {
+  font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--border-interactive); border-radius: var(--radius-sm);
+  padding: 10px var(--space-3); width: 100%;
+}
+.wip-textarea { resize: vertical; min-height: 88px; }
+.wip-input::placeholder, .wip-textarea::placeholder { color: var(--ink-subtle); }
+.wip-input:focus, .wip-textarea:focus, .wip-select:focus { outline: 2px solid var(--focus-ring); outline-offset: 1px; border-color: var(--focus-ring); }
+.wip-field__hint { font-family: var(--font-sans); font-size: 12px; line-height: 16px; color: var(--ink-muted); }
+.wip-field--error .wip-input, .wip-field--error .wip-textarea, .wip-field--error .wip-select { border-color: var(--danger); }
+.wip-field__error { font-family: var(--font-sans); font-size: 12px; line-height: 16px; color: var(--danger); font-weight: 500; }
+
+/* ---------- 12. Case à cocher et bouton radio ---------- */
+.wip-checkbox, .wip-radio { display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; font-family: var(--font-sans); font-size: 14px; line-height: 20px; color: var(--ink); }
+.wip-checkbox input, .wip-radio input {
+  width: 18px; height: 18px; margin: 0; accent-color: var(--bleu-petrole-texte); flex: none;
+}
+.wip-checkbox input:focus-visible, .wip-radio input:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* ---------- 13. Fenêtre modale ---------- */
+.wip-modal-overlay {
+  position: fixed; inset: 0; background: rgba(30,43,42,.5);
+  display: flex; align-items: center; justify-content: center; padding: var(--space-4); z-index: 50;
+}
+.wip-modal-overlay[hidden] { display: none; }
+.wip-modal {
+  background: var(--surface); border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+  width: 100%; max-width: 420px; max-height: 90vh; overflow: auto;
+}
+.wip-modal__header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); padding: var(--space-5) var(--space-5) 0; }
+.wip-modal__title { font-family: var(--font-sans); font-size: 20px; line-height: 27px; font-weight: 700; color: var(--ink); margin: 0; }
+.wip-modal__close { background: transparent; border: 0; padding: 4px; cursor: pointer; color: var(--ink-muted); flex: none; border-radius: var(--radius-sm); }
+.wip-modal__close:hover { background: var(--surface-alt); }
+.wip-modal__close:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
+.wip-modal__body { font-family: var(--font-sans); font-size: 14px; line-height: 22px; color: var(--ink-muted); padding: var(--space-3) var(--space-5); }
+.wip-modal__footer { display: flex; justify-content: flex-end; gap: var(--space-3); padding: 0 var(--space-5) var(--space-5); }
+
+/* ---------- 14. En-tête de site ---------- */
+.wip-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); background: var(--surface); }
+.wip-header__logo { display: flex; align-items: center; gap: var(--space-2); flex: none; }
+.wip-header__logo img { height: 32px; width: auto; display: block; }
+.wip-nav { display: flex; align-items: center; gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
+.wip-nav__link { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 600; color: var(--ink); text-decoration: none; }
+.wip-nav__link:hover { color: var(--bleu-petrole-texte); }
+.wip-header__actions { display: flex; align-items: center; gap: var(--space-3); }
+.wip-nav-toggle { display: none; background: transparent; border: 1px solid var(--border-interactive); border-radius: var(--radius-sm); padding: 6px; cursor: pointer; color: var(--ink); }
+@media (max-width: 720px) {
+  .wip-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: var(--space-3); background: var(--surface); border-bottom: 1px solid var(--border); padding: var(--space-4); }
+  .wip-header { position: relative; }
+  .wip-header.wip-header--open .wip-nav { display: flex; }
+  .wip-nav-toggle { display: inline-flex; }
+}
+
+/* ---------- 15. Pied de page ---------- */
+.wip-footer { background: var(--ink); color: #E3E9E8; padding: var(--space-8) var(--space-4) var(--space-5); }
+.wip-footer__grid { display: flex; flex-wrap: wrap; gap: var(--space-7); max-width: 1040px; margin: 0 auto; }
+.wip-footer__mission { flex: 1 1 260px; font-family: var(--font-sans); font-size: 13px; line-height: 20px; color: #B9C6C4; max-width: 340px; }
+.wip-footer__col { flex: 1 1 160px; }
+.wip-footer__col h3 { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 600; color: #fff; margin: 0 0 var(--space-3); }
+.wip-footer__col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.wip-footer__col a { font-family: var(--font-sans); font-size: 13px; line-height: 18px; color: #B9C6C4; text-decoration: none; }
+.wip-footer__col a:hover { color: #fff; }
+.wip-footer__social { display: flex; gap: var(--space-3); margin-top: var(--space-4); }
+.wip-footer__social a { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border: 1px solid #44534F; border-radius: var(--radius-sm); color: #B9C6C4; }
+.wip-footer__social a:hover { border-color: #B9C6C4; color: #fff; }
+.wip-footer__bottom { max-width: 1040px; margin: var(--space-7) auto 0; padding-top: var(--space-4); border-top: 1px solid #3A4A46; display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; font-family: var(--font-sans); font-size: 12px; line-height: 16px; color: #8DA09D; }
+
+/* ---------- 16. Étapes ---------- */
+.wip-steps { display: flex; list-style: none; margin: 0; padding: 0; }
+.wip-steps__item { display: flex; align-items: center; flex: 1; }
+.wip-steps__item:last-child { flex: none; }
+.wip-steps__circle {
+  width: 28px; height: 28px; border-radius: 50%; flex: none; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-sans); font-size: 12px; font-weight: 700; border: 2px solid var(--border-interactive); color: var(--ink-muted); background: var(--surface);
+}
+.wip-steps__label { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; color: var(--ink-muted); margin-left: var(--space-2); white-space: nowrap; }
+.wip-steps__line { flex: 1; height: 2px; background: var(--border); margin: 0 var(--space-2); }
+.wip-steps__item--done .wip-steps__circle { background: var(--bleu-petrole-texte); border-color: var(--bleu-petrole-texte); color: #fff; }
+.wip-steps__item--done .wip-steps__label { color: var(--ink); }
+.wip-steps__item--done + .wip-steps__item .wip-steps__line { background: var(--bleu-petrole-texte); }
+.wip-steps__item--actif .wip-steps__circle { border-color: var(--bleu-petrole-texte); color: var(--bleu-petrole-texte); }
+.wip-steps__item--actif .wip-steps__label { color: var(--ink); }
+
+/* ---------- 17. Citation ---------- */
+.wip-quote { max-width: 560px; }
+.wip-quote__mark { font-family: var(--font-sans); font-size: 56px; line-height: 1; font-weight: 800; color: var(--rose-corail); margin: 0 0 -12px; display: block; }
+.wip-quote__text { font-family: var(--font-sans); font-size: 20px; line-height: 29px; font-weight: 600; color: var(--ink); margin: 0; }
+.wip-quote__attribution { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-4); font-family: var(--font-sans); }
+.wip-quote__attribution strong { font-size: 13px; color: var(--ink); display: block; }
+.wip-quote__attribution span { font-size: 12px; color: var(--ink-muted); }
+
+/* ---------- 18. Avatar / fiche équipe ---------- */
+.wip-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 3px solid var(--ring-color, var(--bleu-petrole)); flex: none; }
+.wip-team-card { display: flex; align-items: center; gap: var(--space-3); }
+.wip-team-card__name { font-family: var(--font-sans); font-size: 15px; font-weight: 700; color: var(--ink); margin: 0; }
+.wip-team-card__role { font-family: var(--font-sans); font-size: 12px; color: var(--ink-muted); margin: 2px 0 0; }
+
+/* ---------- 19. Identité graphique Wipsee ---------- */
+.wip-frise { height: 20px; background-repeat: repeat-x; background-size: auto 100%; border-radius: var(--radius-sm); }
+.wip-liste--puce { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.wip-liste--puce li { display: flex; align-items: flex-start; gap: var(--space-3); font-family: var(--font-sans); font-size: 14px; line-height: 22px; color: var(--ink); }
+.wip-liste--puce__icon { width: 22px; height: 16px; flex: none; margin-top: 3px; background-repeat: no-repeat; background-size: contain; }
+.wip-fleche { display: inline-block; width: 22px; height: 14px; background-repeat: no-repeat; background-size: contain; vertical-align: middle; }
+
+/* ---------- 20. Bandeau d'accueil ---------- */
+.wip-hero { position: relative; overflow: hidden; background: var(--surface-alt); border-radius: var(--radius-lg); padding: var(--space-8) var(--space-5); }
+.wip-hero__blob { position: absolute; width: 260px; height: 260px; border-radius: 50%; opacity: .5; filter: blur(2px); }
+.wip-hero__content { position: relative; max-width: 560px; }
+.wip-hero__eyebrow { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--bleu-petrole-texte); margin: 0 0 var(--space-2); }
+.wip-hero__title { font-family: var(--font-sans); font-size: 36px; line-height: 42px; font-weight: 800; color: var(--ink); margin: 0 0 var(--space-3); }
+.wip-hero__subtitle { font-family: var(--font-sans); font-size: 16px; line-height: 24px; color: var(--ink-muted); margin: 0 0 var(--space-5); }
